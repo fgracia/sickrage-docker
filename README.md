@@ -6,9 +6,9 @@ This is a Dockerfile to deploy SickRage.
 
 Here's how you can run the container :
 
-====
-docker run --restart=always --name sickrage -d -p 8081:8081 -v /etc/localtime:/etc/localtime:ro -v /<local-directory-for-config-files>:/data fgracia/sickrage
-====
+
+`` docker run --restart=always --name sickrage -d -p 8081:8081 -v /etc/localtime:/etc/localtime:ro -v /<local-directory-for-config-files>:/data fgracia/sickrage ``
+
 
 
 Where :
@@ -34,6 +34,5 @@ If you use post-processing actions, you may need to mount other data volumes.
 Because of an hard docker run command to remember, you can use docker-compose (see the YAML script in the compose folder). 
 You will juste have to adapt data volumes and then run :
 
-====
-docker-compose up -d
-====
+`` docker-compose up -d ``
+
