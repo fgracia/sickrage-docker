@@ -23,8 +23,8 @@ Where :
   - maps the default port 8081. If you want to change it, you will be able to do it in the SickRage configuration.
 - -v /etc/localtime:/etc/localtime:ro
   - sets the UTC like the host (optional)
-- -v /<local-directory-for-config-files>:/data
-  - if you want persistent config files, you can choose a local directory
+- -v /local-data:/data
+  - if you want persistent config files, you can choose a local directory. It is important to map it in /data in the container.
 
 If you use post-processing actions, you may need to mount other data volumes.
 
