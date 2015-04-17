@@ -31,7 +31,7 @@ If you use post-processing actions, you may need to mount other data volumes.
 
 ## Docker Compose
 
-Because of an hard docker run command to remember, you can use docker-compose (see the YAML script in the compose folder). 
+Because of a pretty hard docker run command to remember, you can use docker-compose (see the YAML script in the compose folder). 
 You will juste have to adapt data volumes and then run :
 
 `` docker-compose up -d ``
