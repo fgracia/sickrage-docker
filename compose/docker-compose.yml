@@ -1,0 +1,10 @@
+sickrage:
+  image: fgracia/sickrage
+  ports:
+   - "8081:8081"
+  volumes:
+   - /etc/localtime:/etc/localtime:ro
+   - /volume1/Docker/data/sickrage:/data
+   - /volume1/DL:/volume1/DL
+   - /volume1/video/Series:/volume1/video/Series
+  restart: always
