@@ -13,17 +13,17 @@ Here's how you can run the container :
 
 Where :
 
-- --restart=always
+- **--restart=always**
   - allows to automatically restart the container if it stops, of if the host reboots.
-- --name sickrage 
-  - you can choose the name you want
-- -d
+- **--name sickrage**
+  - you can choose the name that you want
+- **-d**
   - daemon mode
-- -p 8081:8081
+- **-p 8081:8081**
   - maps the default port 8081. If you want to change it, you will be able to do it in the SickRage configuration.
-- -v /etc/localtime:/etc/localtime:ro
+- **-v /etc/localtime:/etc/localtime:ro**
   - sets the UTC like the host (optional)
-- -v /local-data:/data
+- **-v /local-data:/data**
   - if you want persistent config files, you can choose a local directory. It is important to map it in /data in the container.
 
 If you use post-processing actions, you may need to mount other data volumes.
