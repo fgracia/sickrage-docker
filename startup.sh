@@ -60,9 +60,5 @@ then
 fi
 
 
-# Updating SickRage
-cd /opt/SickRage
-git pull
-
 # Running SickRage
-python SickBeard.py
+python /opt/SickRage/SickBeard.py
