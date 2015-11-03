@@ -10,7 +10,8 @@ RUN apt-get update && \
     libssl-dev \
     python-cheetah \
     git-core \
-    wget
+    wget \
+    unrar-free
 RUN apt-get clean
 
 WORKDIR /root
