@@ -5,15 +5,16 @@ MAINTAINER Frederic GRACIA <gracia.frederic@gmail.com>
 RUN sh -c "echo 'Acquire::http { Proxy \"http://192.168.0.10:3142\"; };' > /etc/apt/apt.conf.d/02proxy"
 
 RUN apt-get update && \
-	apt-get install -y build-essential \
-	python \
-	python-dev \ 
-	libffi-dev \
-	libssl-dev \
-	python-cheetah \
-	git-core \
-	wget \
-	unrar-free
+    apt-get install -y build-essential \
+    python \
+    python-dev \
+    libffi-dev \
+    libssl-dev \
+    python-cheetah \
+    git-core \
+    wget \
+    unrar-free
+
 RUN apt-get clean
 
 WORKDIR /root
