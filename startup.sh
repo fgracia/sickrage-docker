@@ -37,6 +37,7 @@ then
 	ln -s /data/Logs /opt/SickRage/Logs
 fi	
 
+
 # If no config is present, we create it
 if [ ! -f /data/sickbeard.db ] && [ ! -f /data/config.ini ]
 then
