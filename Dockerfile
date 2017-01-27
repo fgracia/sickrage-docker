@@ -2,9 +2,6 @@ FROM debian:jessie
 
 MAINTAINER Frederic GRACIA <gracia.frederic@gmail.com>
 
-# Configuring APT cacher
-RUN sh -c "echo 'Acquire::http { Proxy \"http://aptcacher.cloud.iscfrance.lan.bdx.sqli.com:3142\"; };' > /etc/apt/apt.conf.d/02proxy"
-
 # Installing packages
 RUN apt-get update && \
     apt-get install -y build-essential \
