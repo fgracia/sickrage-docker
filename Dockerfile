@@ -2,11 +2,14 @@ FROM debian:jessie
 
 MAINTAINER Frederic GRACIA <gracia.frederic@gmail.com>
 
-RUN sh -c "echo 'Acquire::http { Proxy \"http://192.168.0.10:3142\"; };' > /etc/apt/apt.conf.d/02proxy"
+# Configuring APT cacher
+RUN sh -c "echo 'Acquire::http { Proxy \"http://aptcacher.cloud.iscfrance.lan.bdx.sqli.com:3142\"; };' > /etc/apt/apt.conf.d/02proxy"
 
+# Installing packages
 RUN apt-get update && \
     apt-get install -y build-essential \
     python \
+    python-pip \
     python-dev \
     libffi-dev \
     libssl-dev \
@@ -15,24 +18,26 @@ RUN apt-get update && \
     wget \
     unrar-free
 
+# Cleaning APT cache
 RUN apt-get clean
 
 WORKDIR /root
-RUN wget https://bootstrap.pypa.io/get-pip.py
-RUN python get-pip.py
 
-RUN wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py
-RUN python2 ez_setup.py
-RUN pip install --upgrade ndg-httpsclient pyasn1 cryptography pycparser pyopenssl
+# Creating data directory (for future app config files)
+RUN mkdir /data
 
+# Switching to /opt directory for app installation
 WORKDIR /opt
 
-#Old repo (<01/2016) = RUN git clone https://github.com/SiCKRAGETV/SickRage.git
+# Cloning SickRage repository
 RUN git clone https://github.com/SickRage/SickRage.git
 
+# Copying startup script
 COPY ./startup.sh /startup.sh
 RUN chmod +x /startup.sh
 
+# Exposing app port
 EXPOSE 8081
 
+# Running app
 CMD ["/startup.sh"]
