@@ -4,7 +4,7 @@ MAINTAINER Frederic GRACIA <gracia.frederic@gmail.com>
 
 # Installing packages
 RUN apt-get update && \
-    apt-get install -y build-essential \
+    apt-get install -y \
     python \
     python-pip \
     python-dev \
@@ -23,11 +23,8 @@ WORKDIR /root
 # Creating data directory (for future app config files)
 RUN mkdir /data
 
-# Switching to /opt directory for app installation
-WORKDIR /opt
-
-# Cloning SickRage repository
-RUN git clone https://github.com/SickRage/SickRage.git
+# App installation
+ADD tmp /opt/SickRage
 
 # Copying startup script
 COPY ./startup.sh /startup.sh
