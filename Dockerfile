@@ -5,11 +5,11 @@ MAINTAINER Frederic GRACIA <gracia.frederic@gmail.com>
 # Installing packages
 RUN apt-get update && \
     apt-get install -y \
-    python \
     python-pip \
     python-dev \
     libffi-dev \
     libssl-dev \
+    libsqlite3-dev \
     python-cheetah \
     git-core \
     wget \
@@ -17,6 +17,14 @@ RUN apt-get update && \
 
 # Cleaning APT cache
 RUN apt-get clean
+
+# Compiling and installing Python2.7.13
+WORKDIR /usr/src
+RUN wget https://www.python.org/ftp/python/2.7.13/Python-2.7.13.tgz
+RUN tar xzf Python-2.7.13.tgz
+WORKDIR /usr/src/Python-2.7.13
+RUN ./configure
+RUN make install
 
 WORKDIR /root
 
