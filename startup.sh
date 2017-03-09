@@ -77,4 +77,4 @@ fi
 
 
 # Running SickRage
-python /opt/SickRage/SickBeard.py
+python2.7 /opt/SickRage/SickBeard.py
